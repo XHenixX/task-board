@@ -10,15 +10,29 @@ function addTask() {
     }
 
     const li = document.createElement("li");
-    li.textContent = taskText + " ";
 
-    // Botón eliminar
+    const span = document.createElement("span");
+    span.textContent = taskText;
+
+    // BOTÓN EDITAR
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "✏️";
+    editBtn.onclick = function () {
+        const newText = prompt("Editar tarea:", span.textContent);
+        if (newText !== null && newText !== "") {
+            span.textContent = newText;
+        }
+    };
+
+    // BOTÓN ELIMINAR
     const deleteBtn = document.createElement("button");
     deleteBtn.textContent = "❌";
     deleteBtn.onclick = function () {
         li.remove();
     };
 
+    li.appendChild(span);
+    li.appendChild(editBtn);
     li.appendChild(deleteBtn);
 
     document.getElementById("taskList").appendChild(li);
