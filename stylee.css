@@ -1,32 +1,96 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     margin: 0;
-    padding: 20px;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* TARJETA PRINCIPAL */
+.container {
+    background: #ffffff;
+    width: 420px;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* TITULO */
 h1 {
     text-align: center;
+    margin-bottom: 20px;
+}
+
+/* INPUT + BOTON */
+.input-group {
+    display: flex;
+    gap: 10px;
 }
 
 input {
-    padding: 8px;
-    width: 200px;
+    flex: 1;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
 
-button {
+/* BOTON AGREGAR */
+#addBtn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    cursor: pointer;
+}
+
+/* LISTA */
+ul {
+    padding: 0;
+    margin-top: 20px;
+}
+
+/* TARJETA DE TAREA */
+li {
+    list-style: none;
+    background: #f7f7f7;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* TEXTO */
+li span {
+    flex: 1;
+}
+
+/* BOTONES */
+.actions {
+    display: flex;
+    gap: 10px; 
+}
+
+/* BOTÓN EDITAR */
+.edit-btn {
+    background: #e8bd89;
+    border: none;
+    border-radius: 8px;
     padding: 8px;
     cursor: pointer;
 }
 
-li {
-    margin: 10px 0;
-}
-
-li button {
-    margin-left: 10px;
-    background-color: red;
-    color: white;
+/* BOTÓN ELIMINAR */
+.delete-btn {
+    background: #e2a6a6;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    padding: 8px;
+    cursor: pointer;
 }

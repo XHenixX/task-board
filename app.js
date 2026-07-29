@@ -41,9 +41,17 @@ function createTaskElement(taskText) {
         li.remove();
     };
 
+    const actions = document.createElement("div");
+    actions.classList.add("actions");
+
+    editBtn.classList.add("edit-btn");
+    deleteBtn.classList.add("delete-btn");
+
+    actions.appendChild(editBtn);
+    actions.appendChild(deleteBtn);
+
     li.appendChild(span);
-    li.appendChild(editBtn);
-    li.appendChild(deleteBtn);
+    li.appendChild(actions);
 
     document.getElementById("taskList").appendChild(li);
 }
