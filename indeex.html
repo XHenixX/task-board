@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Task Board</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Task Manager</title>
+
+  <!-- IMPORTANTE: tu archivo CSS -->
+  <link rel="stylesheet" href="stylee.css">
 </head>
 <body>
 
-<h1>📋 Tablero de Tareas</h1>
+  <div class="container">
+    <h1>📝 Task Manager</h1>
 
-<h2>Agregar tarea</h2>
-
-<input type="text" id="taskInput" placeholder="Escribe una tarea">
-<button onclick="addTask()">Agregar</button>
-
-<ul id="taskList"></ul>
-
-<div class="board">
-    <div class="column" id="pendiente">
-        <h2>🟡 Pendiente</h2>
+    <!-- Input + botón -->
+    <div class="input-area">
+      <input type="text" id="taskInput" placeholder="Nueva tarea...">
+      <button class="add-btn" onclick="addTask()">Agregar</button>
     </div>
 
-    <div class="column" id="progreso">
-        <h2>🔵 En Progreso</h2>
-    </div>
+    <!-- Lista -->
+    <ul id="taskList"></ul>
+  </div>
 
-    <div class="column" id="completado">
-        <h2>🟢 Completado</h2>
-    </div>
-</div>
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      const text = input.value.trim();
 
-<script src="app.js"></script>
+      if (text === "") return;
+
+      const li = document.createElement("li");
+
+      li.innerHTML = `
+        <span>${text}</span>
+        <div class="actions">
+          <button class="edit-btn" onclick="editTask(this)">✏️</button>
+          <button class="delete-btn" onclick="deleteTask(this)">❌</button>
+        </div>
+      `;
+
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+
+    function deleteTask(button) {
+      button.parentElement.parentElement.remove();
+    }
+
+    function editTask(button) {
+      const li = button.parentElement.parentElement;
+      const span = li.querySelector("span");
+
+      const newText = prompt("Editar tarea:", span.textContent);
+
+      if (newText !== null && newText.trim() !== "") {
+        span.textContent = newText;
+      }
+    }
+  </script>
+
 </body>
 </html>
