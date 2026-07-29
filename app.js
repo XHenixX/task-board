@@ -4,8 +4,10 @@ function addTask() {
     const input = document.getElementById("taskInput");
     const text = input.value;
 
-    if (text === "") return;
-
+     if (taskText === "") {
+        alert("Escribe una tarea");
+        return;
+    }
     const task = createTaskElement(text);
     document.getElementById("pendiente").appendChild(task);
 
