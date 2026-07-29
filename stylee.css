@@ -29,7 +29,7 @@ button {
 }
 
 .column {
-    background: white;
+    background: rgb(191, 155, 155);
     padding: 10px;
     width: 30%;
     min-height: 300px;
