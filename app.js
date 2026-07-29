@@ -2,14 +2,26 @@ let taskId = 0;
 
 function addTask() {
     const input = document.getElementById("taskInput");
-    const text = input.value;
+    const taskText = input.value;
 
-     if (taskText === "") {
+    if (taskText === "") {
         alert("Escribe una tarea");
         return;
     }
-    const task = createTaskElement(text);
-    document.getElementById("pendiente").appendChild(task);
+
+    const li = document.createElement("li");
+    li.textContent = taskText + " ";
+
+    // Botón eliminar
+    const deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "❌";
+    deleteBtn.onclick = function () {
+        li.remove();
+    };
+
+    li.appendChild(deleteBtn);
+
+    document.getElementById("taskList").appendChild(li);
 
     input.value = "";
 }
